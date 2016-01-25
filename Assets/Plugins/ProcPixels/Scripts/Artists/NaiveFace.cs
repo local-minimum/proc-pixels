@@ -20,9 +20,10 @@ namespace ProcPixel.Artists.Face {
 		public override void Paint ()
 		{			
 			SetColor();
-			SetPolygon ();
-			Fill ();
-
+			for (int i = 0; i < 6; i++) {
+				SetPolygon ();
+				Fill ((i < 3 ? ColorShade.Darker : ColorShade.Reference));
+			}
 			base.Paint ();
 
 		}
@@ -66,13 +67,13 @@ namespace ProcPixel.Artists.Face {
 			}
 		}
 
-		void Fill() {
+		void Fill(ColorShade shade) {
 			Vector2 point;
 			for (int x = 0, X = canvasWidth; x < X; x++) {
 				for (int y = 0, Y = canvasHeight; y < Y; y++) {
 					point = new Vector2 (x, y);
 					if (PolygoneMath.PointInPoly(point, polygon))
-						canvas.Draw (x, y, color [ColorShade.Reference]);
+						canvas.Draw (x, y, color [shade]);
 				}
 			}				
 		}
