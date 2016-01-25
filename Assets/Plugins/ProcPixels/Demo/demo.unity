@@ -105,8 +105,9 @@ GameObject:
   - 4: {fileID: 425728323}
   - 114: {fileID: 425728324}
   - 114: {fileID: 425728322}
+  - 114: {fileID: 425728325}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: FacePalette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors: []
+  _size: 1
 --- !u!4 &425728323
 Transform:
   m_ObjectHideFlags: 0
@@ -136,6 +138,7 @@ Transform:
   m_Children:
   - {fileID: 33284416}
   - {fileID: 769922813}
+  - {fileID: 1012776976}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &425728324
@@ -152,39 +155,54 @@ MonoBehaviour:
   colors:
   - referenceColor:
       serializedVersion: 2
-      rgba: 4289905889
+      rgba: 4291615981
     lighterColor:
       serializedVersion: 2
-      rgba: 4289905889
+      rgba: 4291615981
     darkerColor:
       serializedVersion: 2
-      rgba: 4289905889
+      rgba: 4291615981
     shading: 0
   - referenceColor:
       serializedVersion: 2
-      rgba: 4282081912
+      rgba: 4287199371
     lighterColor:
       serializedVersion: 2
-      rgba: 4282081912
+      rgba: 4287199371
     darkerColor:
       serializedVersion: 2
-      rgba: 4282081912
+      rgba: 4287199371
     shading: 0
   - referenceColor:
       serializedVersion: 2
-      rgba: 4289577266
+      rgba: 4279117116
     lighterColor:
       serializedVersion: 2
-      rgba: 4289577266
+      rgba: 4279117116
     darkerColor:
       serializedVersion: 2
-      rgba: 4289577266
+      rgba: 4279117116
     shading: 0
   palettes:
   - {fileID: 33284417}
   - {fileID: 769922814}
-  - {fileID: 425728322}
+  - {fileID: 425728325}
   shading: 0
+--- !u!114 &425728325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 425728321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f032f8a1adb42e0479f0605856eb0fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors: []
+  palettes:
+  - {fileID: 425728322}
+  - {fileID: 1012776975}
 --- !u!4 &769922813 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429698, guid: a0e034aedfbf3a248ac0276a7fba74b1, type: 2}
@@ -195,6 +213,58 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1233935495}
   m_Script: {fileID: 11500000, guid: 43b0f069b7e15694ba09fa48445e245e, type: 3}
+--- !u!1001 &1012776974
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 425728323}
+    m_Modifications:
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1012776975 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11494218, guid: a130409137ea0b04fbba34ed3130342b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1012776974}
+  m_Script: {fileID: 11500000, guid: 43b0f069b7e15694ba09fa48445e245e, type: 3}
+--- !u!4 &1012776976 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 435926, guid: a130409137ea0b04fbba34ed3130342b, type: 2}
+  m_PrefabInternal: {fileID: 1012776974}
 --- !u!1 &1072174923
 GameObject:
   m_ObjectHideFlags: 0
