@@ -72,8 +72,11 @@ namespace ProcPixel.Fundamentals {
 		}
 	
 		virtual public void Paint() {
-
-		}
+			canvas.Apply ();
+			for (int i = 0; i < subArtist.Length; i++)
+				subArtist [i].Paint ();
+			
+		}			
 
 	}
 }
