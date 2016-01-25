@@ -21,7 +21,7 @@ namespace ProcPixel.Fundamentals
 		public void SetRandomColorsFromPalettes() {
 			bool setShading = shading >= 0f;
 			for (int i = 0; i < palettes.Length; i++) {
-				var color = palettes [i].RandomColor;
+				var color = palettes [i].RandomColor.Copy();
 				if (setShading)
 					color.SetShadeStrength (shading);
 				colors [i] = color;

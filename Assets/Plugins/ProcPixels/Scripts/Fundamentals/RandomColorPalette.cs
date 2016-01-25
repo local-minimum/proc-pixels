@@ -20,7 +20,7 @@ namespace ProcPixel.Fundamentals
 			}
 		}
 
-		new int size {
+		public override int size {
 			get {
 				return _size;
 			}

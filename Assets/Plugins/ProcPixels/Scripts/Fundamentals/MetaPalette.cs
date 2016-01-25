@@ -7,7 +7,7 @@ namespace ProcPixel.Fundamentals {
 		[SerializeField]
 		AbstractPalette[] palettes;
 
-		new int size {
+		public override int size {
 			get {
 				int s = 0;
 				for (int i = 0; i < palettes.Length; i++) {

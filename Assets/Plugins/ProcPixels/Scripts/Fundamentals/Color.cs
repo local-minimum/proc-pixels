@@ -23,6 +23,13 @@ namespace ProcPixel.Fundamentals
         [SerializeField, HideInInspector]
         float shading;
 
+		public Color(UnityEngine.Color32 referenceColor, UnityEngine.Color32 lighterColor, UnityEngine.Color32 darkerColor, float shading) {
+			this.referenceColor = referenceColor;
+			this.lighterColor = lighterColor;
+			this.darkerColor = darkerColor;
+			this.shading = shading;
+		}
+
         public Color(UnityEngine.Color32 referenceColor, UnityEngine.Color32 lighterColor, UnityEngine.Color32 darkerColor)
         {
             this.referenceColor = referenceColor;
@@ -82,6 +89,10 @@ namespace ProcPixel.Fundamentals
 			var col = Color32.Lerp (baseColor, shade == ColorShade.Darker ? UnityEngine.Color.black : UnityEngine.Color.white, shading);
 			col.a = baseColor.a;
 			return col;
+		}
+
+		public Color Copy() {
+			return new Color (referenceColor, lighterColor, darkerColor, shading);
 		}
 
         public UnityEngine.Color32 this[ColorShade shade]

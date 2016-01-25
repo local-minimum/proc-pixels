@@ -25,7 +25,7 @@ namespace ProcPixel.Fundamentals
 			}
 		}
 
-		public int size {
+		public virtual int size {
 			get {
 				return colors.Length;
 			}
