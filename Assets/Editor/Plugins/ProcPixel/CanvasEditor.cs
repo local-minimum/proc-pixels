@@ -19,6 +19,9 @@ namespace ProcPixel.Fundamentals {
 				serializedObject.ApplyModifiedPropertiesWithoutUndo ();
 				canvas.CreateNewCanvas ();
 			}
+
+			if (GUILayout.Button ("Clear"))
+				canvas.Clear ();
 		}
 	}
 }

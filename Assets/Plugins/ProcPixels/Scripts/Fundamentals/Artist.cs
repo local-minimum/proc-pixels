@@ -7,10 +7,44 @@ namespace ProcPixel.Fundamentals {
 		PaintCanvas _canvas;
 
 		[SerializeField]
-		Artist[] subArtist;
+		private Artist[] subArtist;
 
-		int canvasWidth;
+		ProcPixel.Fundamentals.Color _color;
 
+		public ProcPixel.Fundamentals.Color color {
+			get {
+				return _color;
+			}
+
+			set {
+				_color = value;
+				for (int i = 0; i < subArtist.Length; i++)
+					subArtist [i].color = value;
+			}
+		}
+
+		int _canvasWidth;
+		int _canvasHeight;
+
+		public int canvasWidth {
+			get {
+				return _canvasWidth;
+			}
+		}
+
+		public int canvasHeight {
+			get {
+				return _canvasHeight;
+			}
+		}
+
+		Rect _rect;
+		public Rect rect {
+			get {
+				return new Rect (_rect);
+			}
+		}
+	
 		public PaintCanvas canvas {
 			get {
 				return _canvas;
@@ -32,8 +66,14 @@ namespace ProcPixel.Fundamentals {
 		}
 
 		void HandleNewCanvas(Sprite sprite) {
-			canvasWidth = Mathf.RoundToInt(sprite.rect.width);
+			_rect = sprite.rect;
+			_canvasWidth = Mathf.RoundToInt(sprite.rect.width);
+			_canvasHeight = Mathf.RoundToInt (sprite.rect.height);
 		}
 	
+		virtual public void Paint() {
+
+		}
+
 	}
 }
