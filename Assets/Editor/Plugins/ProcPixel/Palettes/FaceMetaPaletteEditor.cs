@@ -24,7 +24,7 @@ namespace ProcPixel.Palettes {
 			EditorGUI.indentLevel += 1;
 				ProcPixel.Fundamentals.EnumEditorHelper<FaceColors>.UnpackProperty(serializedObject.FindProperty("colors"));
 			EditorGUI.indentLevel -= 1;
-
+			serializedObject.ApplyModifiedProperties ();
 		}
 
 	}

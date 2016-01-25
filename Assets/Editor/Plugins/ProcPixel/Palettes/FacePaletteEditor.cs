@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEditor;
 
-
 namespace ProcPixel.Palettes {
 
 	[CustomEditor(typeof(FacePalette), false)]

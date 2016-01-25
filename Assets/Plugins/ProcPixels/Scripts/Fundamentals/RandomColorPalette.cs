@@ -4,7 +4,10 @@ using System.Collections;
 namespace ProcPixel.Fundamentals
 {
 	public class RandomColorPalette : AbstractPalette {
-		
+
+		[SerializeField]
+		int _size = 1;
+
 		public override Color RandomColor {
 			get {
 				return Color.RandomColor;
@@ -19,7 +22,7 @@ namespace ProcPixel.Fundamentals
 
 		new int size {
 			get {
-				return 1;
+				return _size;
 			}
 		}
 	}

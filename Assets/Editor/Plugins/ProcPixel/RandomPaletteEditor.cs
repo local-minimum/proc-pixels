@@ -9,7 +9,8 @@ namespace ProcPixel.Fundamentals {
 
 		public override void OnInspectorGUI ()
 		{
-			EditorGUILayout.HelpBox ("Pretends to be a one length palette that will return any color", MessageType.Info);
+			EditorGUILayout.HelpBox ("Size is the pretended size, useful if palette is part of a meta palette, to adjust the probability of random colors.", MessageType.Info);
+			EditorGUILayout.IntSlider (serializedObject.FindProperty ("_size"), 1, 100);
 		}
 	}
 }
