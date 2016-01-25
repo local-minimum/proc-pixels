@@ -14,8 +14,15 @@ namespace ProcPixel.Fundamentals
         {
 			label = EditorGUI.BeginProperty (position, label, property);
 			float positionWidth = position.width;
+
 			position.width = 20f;
 			property.isExpanded = EditorGUI.Foldout (position, property.isExpanded, GUIContent.none);
+			position.x += position.width;
+			position.width = positionWidth * 0.8f;
+			EditorGUI.LabelField(position, label);
+			position.width = 20f;
+			position.y += rowHeight + rowSpacing;
+
 			if (property.isExpanded) {
 				Rect contentPosition = new Rect();
 				contentPosition.x = position.x;
@@ -65,7 +72,7 @@ namespace ProcPixel.Fundamentals
 
 		public override float GetPropertyHeight (SerializedProperty property, GUIContent label)
 		{
-			return base.GetPropertyHeight (property, label) + (property.isExpanded ? 3 : .5f) * (rowHeight + rowSpacing);
+			return base.GetPropertyHeight (property, label) + (property.isExpanded ? 4: 1.5f) * (rowHeight + rowSpacing);
 		}
 
     }
