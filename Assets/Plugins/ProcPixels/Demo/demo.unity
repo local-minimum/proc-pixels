@@ -275,6 +275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 33284416}
+  - {fileID: 769922813}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &425728324
@@ -291,39 +292,209 @@ MonoBehaviour:
   colors:
   - referenceColor:
       serializedVersion: 2
-      rgba: 4287668935
+      rgba: 0
     lighterColor:
       serializedVersion: 2
-      rgba: 4288720847
+      rgba: 0
     darkerColor:
       serializedVersion: 2
-      rgba: 4286220713
-    shading: 0.15
+      rgba: 0
+    shading: 0
   - referenceColor:
       serializedVersion: 2
-      rgba: 4280059138
+      rgba: 0
     lighterColor:
       serializedVersion: 2
-      rgba: 4282292007
+      rgba: 0
     darkerColor:
       serializedVersion: 2
-      rgba: 4279726337
-    shading: 0.15
+      rgba: 0
+    shading: 0
   - referenceColor:
       serializedVersion: 2
-      rgba: 4282385539
+      rgba: 0
     lighterColor:
       serializedVersion: 2
-      rgba: 4284230037
+      rgba: 0
     darkerColor:
       serializedVersion: 2
-      rgba: 4281729903
-    shading: 0.15
+      rgba: 0
+    shading: 0
   palettes:
-  - {fileID: 33284417}
-  - {fileID: 425728322}
-  - {fileID: 425728322}
-  shading: 0.15
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shading: 0
+--- !u!1 &769922812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 769922813}
+  - 114: {fileID: 769922814}
+  m_Layer: 0
+  m_Name: Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769922813
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769922812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 425728323}
+  m_RootOrder: 1
+--- !u!114 &769922814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769922812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b0f069b7e15694ba09fa48445e245e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4278784548
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4280363321
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4278718496
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282732356
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4283916374
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4282271549
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4279969841
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4281417029
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4279771948
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4284897372
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4285884524
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4284174162
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282081912
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4283330949
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4281686123
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282468934
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4283718744
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4282008126
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282481833
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4283730353
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4282019736
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282210121
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4283459419
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4281749057
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4281353545
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4282668891
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4281024065
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4285629060
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4286549648
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4284839030
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4281027095
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4282407982
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4280697364
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4287199371
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4287923606
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4286278525
+    shading: 0.1
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4281477932
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4282794049
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4281083431
+    shading: 0.1
 --- !u!1 &1072174923
 GameObject:
   m_ObjectHideFlags: 0

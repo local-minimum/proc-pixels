@@ -47,6 +47,15 @@ namespace ProcPixel.Fundamentals
             this.shading = shading;
         }
 
+		/*
+		public Color() {
+			shading = 0.1f;
+			referenceColor = UnityEngine.Color.white;
+			referenceColor.a = 255;
+			lighterColor = CalculateShade (referenceColor, shading, ColorShade.Lighter);
+			darkerColor = CalculateShade (referenceColor, shading, ColorShade.Darker); 
+		}*/
+
 		public static Color RandomColor {
 			get {
 				return new Color (new UnityEngine.Color (Random.value, Random.value, Random.value, 1f));
