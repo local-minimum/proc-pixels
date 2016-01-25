@@ -245,7 +245,6 @@ GameObject:
   - 4: {fileID: 425728323}
   - 114: {fileID: 425728324}
   - 114: {fileID: 425728322}
-  - 114: {fileID: 425728325}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -292,81 +291,39 @@ MonoBehaviour:
   colors:
   - referenceColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4287668935
     lighterColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4288720847
     darkerColor:
       serializedVersion: 2
-      rgba: 0
-    shading: 0
+      rgba: 4286220713
+    shading: 0.15
   - referenceColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4280059138
     lighterColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4282292007
     darkerColor:
       serializedVersion: 2
-      rgba: 0
-    shading: 0
+      rgba: 4279726337
+    shading: 0.15
   - referenceColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4282385539
     lighterColor:
       serializedVersion: 2
-      rgba: 0
+      rgba: 4284230037
     darkerColor:
       serializedVersion: 2
-      rgba: 0
-    shading: 0
+      rgba: 4281729903
+    shading: 0.15
   palettes:
   - {fileID: 33284417}
   - {fileID: 425728322}
   - {fileID: 425728322}
   shading: 0.15
---- !u!114 &425728325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 425728321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 123ba1cd138bb7b4faf1947f0c3d6156, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colors:
-  - referenceColor:
-      serializedVersion: 2
-      rgba: 0
-    lighterColor:
-      serializedVersion: 2
-      rgba: 0
-    darkerColor:
-      serializedVersion: 2
-      rgba: 0
-    shading: 0
-  - referenceColor:
-      serializedVersion: 2
-      rgba: 0
-    lighterColor:
-      serializedVersion: 2
-      rgba: 0
-    darkerColor:
-      serializedVersion: 2
-      rgba: 0
-    shading: 0
-  - referenceColor:
-      serializedVersion: 2
-      rgba: 0
-    lighterColor:
-      serializedVersion: 2
-      rgba: 0
-    darkerColor:
-      serializedVersion: 2
-      rgba: 0
-    shading: 0
 --- !u!1 &1072174923
 GameObject:
   m_ObjectHideFlags: 0
