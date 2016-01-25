@@ -23,6 +23,7 @@ obj/
 *.user
 *.unityproj
 *.booproj
+/UpgradeLog*.htm
 
 # ============ #
 # OS generated #
