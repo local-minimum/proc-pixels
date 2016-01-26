@@ -55,7 +55,7 @@ namespace ProcPixel.Fundamentals {
 
 		public void CreateNewCanvas() {
 			_image = new Texture2D (width, height, TextureFormat.RGBA32, false);
-
+			_image.filterMode = FilterMode.Point;
 			var name = spriteName;;
 			var rect = new Rect (Vector2.zero, new Vector2 (width, height));
 			_current = Sprite.Create (_image, rect, Vector2.one * 0.5f);

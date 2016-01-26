@@ -4,10 +4,14 @@ using System.Collections;
 namespace ProcPixel.Fundamentals {
 	public class Artist : MonoBehaviour {
 
+		[SerializeField, HideInInspector]
 		PaintCanvas _canvas;
 
 		[SerializeField]
 		private Artist[] subArtist;
+
+		[SerializeField]
+		protected ColorShade[] drawingLayer;
 
 		ProcPixel.Fundamentals.Color _color;
 
@@ -61,22 +65,42 @@ namespace ProcPixel.Fundamentals {
 
 				for (int i = 0; i < subArtist.Length; i++)
 					subArtist [i].canvas = value;
-				
+
 			}
+		}
+
+		protected void ClearDrawingLayer() {
+			for (int i = 0; i < drawingLayer.Length; i++)
+				drawingLayer [i] = ColorShade.None;
+		}
+
+		protected void Draw(int x, int y, ColorShade shade) {
+			drawingLayer [y * _canvasWidth + x] = shade;
 		}
 
 		void HandleNewCanvas(Sprite sprite) {
 			_rect = sprite.rect;
 			_canvasWidth = Mathf.RoundToInt(sprite.rect.width);
 			_canvasHeight = Mathf.RoundToInt (sprite.rect.height);
+			drawingLayer = new ColorShade[_canvasWidth * _canvasHeight];
+
 		}
 	
 		virtual public void Paint() {
+			
+			for (int i = 0; i < drawingLayer.Length; i++) {
+				if (drawingLayer[i] != ColorShade.None) {
+					int x = i % _canvasWidth;
+					canvas.Draw(x, (i - x)/_canvasWidth, _color[drawingLayer[i]]); 
+				}
+			}
+
 			canvas.Apply ();
+
 			for (int i = 0; i < subArtist.Length; i++)
 				subArtist [i].Paint ();
 			
 		}			
-
+			
 	}
 }

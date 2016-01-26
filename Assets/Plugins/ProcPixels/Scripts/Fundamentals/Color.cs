@@ -4,7 +4,7 @@ using System.Collections;
 namespace ProcPixel.Fundamentals
 {
 
-    public enum ColorShade { Reference, Lighter, Darker};
+    public enum ColorShade { None, Reference, Lighter, Darker};
 
     [System.Serializable]
     public struct Color

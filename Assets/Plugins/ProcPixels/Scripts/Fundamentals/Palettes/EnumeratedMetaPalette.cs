@@ -9,7 +9,10 @@ namespace ProcPixel.Fundamentals
 		AbstractPalette[] palettes;
 
 		[SerializeField]
-		float shading;
+		bool enforceShading = false;
+
+		[SerializeField]
+		float shading = 0f;
 
 		new void Reset ()
 		{
@@ -19,10 +22,10 @@ namespace ProcPixel.Fundamentals
 		}
 
 		public void SetRandomColorsFromPalettes() {
-			bool setShading = shading >= 0f;
+			
 			for (int i = 0; i < palettes.Length; i++) {
 				var color = palettes [i].RandomColor.Copy();
-				if (setShading)
+				if (enforceShading)
 					color.SetShadeStrength (shading);
 				colors [i] = color;
 			}
