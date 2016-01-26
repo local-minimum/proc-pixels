@@ -22,6 +22,9 @@ namespace ProcPixel.Fundamentals {
 
 			if (GUILayout.Button ("Clear"))
 				canvas.Clear ();
+
+			if (GUILayout.Button ("Save as PNG"))
+				canvas.Save ();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 namespace ProcPixel.Fundamentals {
 
@@ -82,6 +83,14 @@ namespace ProcPixel.Fundamentals {
 			}
 			_image.Apply ();
 
+		}
+
+		public void Save() {
+			string filename = spriteName;
+			if (filename == "")
+				filename = "proc_gen_demo";
+			
+			File.WriteAllBytes (filename + ".png", _image.EncodeToPNG ());
 		}
 
 	}
