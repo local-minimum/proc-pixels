@@ -80,6 +80,10 @@ namespace ProcPixel.Fundamentals {
 			drawingLayer [y * _canvasWidth + x] = shade;
 		}
 
+		protected void Draw(int pos, ColorShade shade) {
+			drawingLayer [pos] = shade;
+		}
+
 		void HandleNewCanvas(Sprite sprite) {
 			_rect = sprite.rect;
 			_canvasWidth = Mathf.RoundToInt(sprite.rect.width);

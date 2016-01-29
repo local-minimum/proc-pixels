@@ -27,6 +27,9 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField, Range(.1f, .5f)]
 		float lowerHeight = 0.2f;
 
+		[SerializeField]
+		bool smoothFill = false;
+
 		protected override void SetNewValues ()
 		{
 			mouthWidth = Random.Range (0.3f, .7f);
@@ -45,7 +48,8 @@ namespace ProcPixel.Artists.Face {
 
 		protected override void PostProcessing ()
 		{
-			drawingLayer = ImageFilters.NormExpand (drawingLayer, canvasWidth);
+			if (smoothFill)
+				drawingLayer = ImageFilters.NormExpand (drawingLayer, canvasWidth);
 		}
 
 		protected override void SetColor () {
@@ -65,6 +69,11 @@ namespace ProcPixel.Artists.Face {
 						Draw (x, y, (triangle == 0 || triangle == 5) ? ColorShade.Reference : ColorShade.Lighter);
 					}
 				}
+			}
+
+			var centerLine = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [1], polygon [2], polygon [16]);
+			for (int i = 0; i < centerLine.Length; i++) {
+				Draw (centerLine [i], ColorShade.Darker);
 			}
 		}
 
