@@ -10,8 +10,10 @@ namespace ProcPixel.Fundamentals {
 		[SerializeField]
 		private Artist[] subArtist;
 
-		[SerializeField]
+		[SerializeField, HideInInspector]
 		protected ColorShade[] drawingLayer;
+
+		protected Vector2[] polygon;
 
 		ProcPixel.Fundamentals.Color _color;
 
@@ -98,9 +100,12 @@ namespace ProcPixel.Fundamentals {
 			canvas.Apply ();
 
 			for (int i = 0; i < subArtist.Length; i++)
-				subArtist [i].Paint ();
+				subArtist [i].Paint (polygon);
 			
 		}			
-			
+
+		virtual public void Paint(Vector2[] parentPolygon) {
+			Paint ();
+		}
 	}
 }

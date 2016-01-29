@@ -6,7 +6,7 @@ using ProcPixel.Utils;
 
 namespace ProcPixel.Artists.Face {
 	
-	public class NaiveFace : Artist {
+	public class NaiveFace : AbstractFace {
 
 		[SerializeField, Range(0.1f, 0.3f)]
 		float chinWidth;
@@ -29,25 +29,8 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField, Range(0.9f, 1f)]
 		float apexHeight;
 
-		[SerializeField, Range(0f, 0.1f)]
-		float noise;
-
 		[SerializeField]
-		FaceMetaPalette _palette;
-
-		[SerializeField]
-		bool randomShape = true;
-
-		[SerializeField]
-		bool clearBeforePaint = true;
-
-		[SerializeField]
-		bool remakePaletteOnPaint = true;
-
-		[SerializeField]
-		bool erodeFace = true;
-
-		Vector2[] polygon;
+		bool erodeFace = true;	
 
 		void SetColor() {
 			color = _palette[FaceColors.Skin];
@@ -106,12 +89,7 @@ namespace ProcPixel.Artists.Face {
 			cheekHeight = Random.Range (.1f, .4f);
 			templeHeight = Random.Range (0.7f, 0.9f);
 			apexHeight = Random.Range (Mathf.Max (templeHeight * 1.2f, 0.8f), 1f);
-		}
-
-		void SetNoise() {
-			for (int i = 0; i < polygon.Length; i++)
-				polygon [i] += new Vector2 (Random.Range (-noise, noise), Random.Range (-noise, noise));
-		}
+		}			
 
 		void ScaleValues() {
 			Rect extents = rect;
@@ -131,18 +109,6 @@ namespace ProcPixel.Artists.Face {
 				}
 			}				
 		}
-
-		#if UNITY_EDITOR
-		void OnDrawGizmosSelected() {
-			float size = 4f;
-			for (int i = 0; i < polygon.Length; i++) {
-				int j = (i + 1) % polygon.Length;
-				Gizmos.DrawLine (transform.TransformPoint (polygon [i] * size ), transform.TransformPoint (polygon [j] * size));
-				Gizmos.DrawSphere(transform.TransformPoint(polygon[i] * size), 3f * size);
-
-			}
-		}
-
-		#endif
+			
 	}
 }
