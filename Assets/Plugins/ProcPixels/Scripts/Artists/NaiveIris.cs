@@ -75,12 +75,12 @@ namespace ProcPixel.Artists.Face {
 
 			for (int i = 0; i < 2; i++) {
 				System.Array.Copy (polygon, i * eyeLength, eye, 0, eyeLength);
-				var box = PolygoneMath.BoundingPixelBox (eye);
+				var box = PolygonMath.BoundingPixelBox (eye);
 
 				for (int x = Mathf.FloorToInt (box.xMin), X = Mathf.CeilToInt (box.xMax); x < X; x++) {
 					for (int y = Mathf.FloorToInt (box.yMin), Y = Mathf.CeilToInt (box.yMax); y < Y; y++) {
 						point = new Vector2 (x, y);
-						if (PolygoneMath.PointInPoly (point, eye)) {
+						if (PolygonMath.PointInPoly (point, eye)) {
 							Draw (x, y, ProcPixel.Fundamentals.Color.RandomShade);
 						}
 					}

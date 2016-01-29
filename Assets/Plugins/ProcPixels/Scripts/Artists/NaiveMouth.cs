@@ -54,14 +54,14 @@ namespace ProcPixel.Artists.Face {
 
 		protected override void Fill ()
 		{
-			Rect box = PolygoneMath.BoundingPixelBox (polygon);
+			Rect box = PolygonMath.BoundingPixelBox (polygon);
 			Vector2 point;
 			int triangle;
 
 			for (int x = Mathf.FloorToInt (box.xMin), X = Mathf.CeilToInt (box.xMax); x < X; x++) {
 				for (int y = Mathf.FloorToInt (box.yMin), Y = Mathf.CeilToInt (box.yMax); y < Y; y++) {
 					point = new Vector2 (x, y);
-					if (PolygoneMath.PointInTriangleSequence(point, polygon, out triangle)) {
+					if (PolygonMath.PointInTriangleSequence(point, polygon, out triangle)) {
 						Draw (x, y, (triangle == 0 || triangle == 5) ? ColorShade.Reference : ColorShade.Lighter);
 					}
 				}
@@ -76,7 +76,6 @@ namespace ProcPixel.Artists.Face {
 			float xScale = facePolygon [6].x - facePolygon [1].x;
 			float yScale = ((facePolygon [1].y - facePolygon [0].y) + (facePolygon [6].y - facePolygon [7].y)) * 0.5f;
 			Vector2 center = (facePolygon [1] + facePolygon [6]) * 0.5f + Vector2.down * yScale * 0.1f;
-
 			float smileHeight = yScale * (lowerHeight + mouthUpperHeight) * smile;
 			float scaledHalftWidth = xScale * mouthWidth * 0.5f;
 			float scaledApexHeight = yScale * (mouthUpperPeaksElevation + mouthUpperHeight);

@@ -96,7 +96,7 @@ namespace ProcPixel.Artists.Face {
 			for (int x = 0, X = canvasWidth; x < X; x++) {
 				for (int y = 0, Y = canvasHeight; y < Y; y++) {
 					point = new Vector2 (x, y);
-					if (PolygoneMath.PointInPoly(point, polygon))
+					if (PolygonMath.PointInPoly(point, polygon))
 						Draw (x, y, shade);
 				}
 			}				

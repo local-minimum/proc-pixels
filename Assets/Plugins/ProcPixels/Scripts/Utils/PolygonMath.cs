@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ProcPixel.Utils {
 	
-	public static class PolygoneMath {
+	public static class PolygonMath {
 
 		public static bool PointInTriangleSequence(Vector2 point, Vector2[] tris, out int triangle) {
 			if (tris.Length % 3 != 0)
