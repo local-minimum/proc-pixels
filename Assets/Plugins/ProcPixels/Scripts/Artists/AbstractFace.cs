@@ -16,14 +16,45 @@ namespace ProcPixel.Artists.Face {
 		protected bool randomShape = true;
 
 		[SerializeField]
-		protected bool clearBeforePaint = true;
+		protected bool clearBeforePaint = false;
 
 		[SerializeField]
-		protected bool remakePaletteOnPaint = true;
+		protected bool remakePaletteOnPaint = false;
 
-		protected void SetNoise() {
+		protected void ApplyNoise() {
 			for (int i = 0; i < polygon.Length; i++)
 				polygon [i] += new Vector2 (Random.Range (-noise, noise), Random.Range (-noise, noise));
+		}
+
+		abstract protected void SetColor ();
+
+		abstract protected void SetNewValues ();
+
+		abstract protected void SetPolygon ();
+
+		abstract protected void Fill();
+
+		abstract protected void PostProcessing ();
+
+		public override void Paint ()
+		{
+			if (clearBeforePaint)
+				canvas.Clear ();
+
+			if (remakePaletteOnPaint)
+				_palette.SetRandomColorsFromPalettes ();
+
+			SetColor();
+			ClearDrawingLayer ();
+
+			if (randomShape)
+				SetNewValues ();
+
+			SetPolygon ();
+			Fill ();
+			PostProcessing ();
+
+			base.Paint ();
 		}
 
 		#if UNITY_EDITOR

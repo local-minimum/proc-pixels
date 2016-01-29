@@ -32,33 +32,20 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField]
 		bool erodeFace = true;	
 
-		void SetColor() {
+		override protected void SetColor() {
 			color = _palette[FaceColors.Skin];
 		}
-
-		public override void Paint ()
-		{			
-			if (clearBeforePaint)
-				canvas.Clear ();
 			
-			if (remakePaletteOnPaint)
-				_palette.SetRandomColorsFromPalettes ();
-			
-			SetColor();
-			ClearDrawingLayer ();
-
-			SetPolygon ();
-			Fill (ColorShade.Reference); 
+		protected override void PostProcessing ()
+		{
 			if (erodeFace) {
 				//drawingLayer = ImageFilters.Erode (drawingLayer, canvasWidth);
 				for (int i=0; i< 3;i++)
 					drawingLayer = ImageFilters.Norm (drawingLayer, canvasWidth);
 			}
-			base.Paint ();
-
 		}
 
-		void SetPolygon() {
+		override protected void SetPolygon() {
 
 			if (randomShape)
 				SetNewValues ();
@@ -76,12 +63,12 @@ namespace ProcPixel.Artists.Face {
 				new Vector2 (0.5f + chinWidth, 0f)
 			};
 			if (noise > 0)
-				SetNoise ();
+				ApplyNoise ();
 
 			ScaleValues ();
 		}
 
-		void SetNewValues() {
+		override protected void SetNewValues() {
 			chinWidth = Random.Range (0.1f, 0.25f);
 			cheekWidth = Random.Range (Mathf.Max(chinWidth * 1.2f, 0.25f), 0.5f);
 			templeWidth = Random.Range (cheekWidth * 0.9f, Mathf.Min(cheekWidth * 1.2f, 0.5f));
@@ -97,6 +84,11 @@ namespace ProcPixel.Artists.Face {
 				polygon [i].x *=  extents.width;
 				polygon [i].y *= extents.height;
 			}
+		}
+
+		protected override void Fill ()
+		{
+			Fill (ColorShade.Reference);
 		}
 
 		void Fill(ColorShade shade) {

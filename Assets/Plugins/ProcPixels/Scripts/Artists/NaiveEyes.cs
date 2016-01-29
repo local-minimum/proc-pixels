@@ -32,29 +32,20 @@ namespace ProcPixel.Artists.Face {
 
 		public override void Paint ()
 		{
-			if (facePolygon == null)
-				return;
 
-			SetColor();
-			ClearDrawingLayer ();
-
-			if (randomShape)
-				SetNewValues ();
-			
-			SetPolygon ();
-			Fill ();
-			for (int i=0; i< smoothings;i++)
-				drawingLayer = ImageFilters.Erode (drawingLayer, canvasWidth);
-			
-
-			base.Paint ();
 		}
 
-		void SetColor() {
+		protected override void PostProcessing ()
+		{
+			for (int i=0; i< smoothings;i++)
+				drawingLayer = ImageFilters.Erode (drawingLayer, canvasWidth);
+		}
+
+		override protected void SetColor() {
 			color = _palette [FaceColors.EyeWhite];
 		}
 
-		void SetNewValues() {
+		override protected void SetNewValues() {
 			distance = Random.Range (.05f, .2f);
 			height = Random.Range (.01f, .2f);
 			centerUpperElevation = Random.Range (0.1f, 0.2f);
@@ -63,7 +54,10 @@ namespace ProcPixel.Artists.Face {
 			centerLowerDepression = Random.Range (0.01f, 0.1f);
 		}
 
-		void SetPolygon() {
+		override protected void SetPolygon() {
+			if (facePolygon == null)
+				throw new System.ArgumentNullException ("Can't draw without a face as template");
+			
 			Vector2 center = (facePolygon [1] + facePolygon [2] + facePolygon [5] + facePolygon [6]) * 0.25f;
 			float xScale = Mathf.Min (facePolygon [5].x - facePolygon [2].x, facePolygon [6].x - facePolygon [1].x);
 			float yScale = Mathf.Min (facePolygon [2].y - facePolygon [1].y, facePolygon [6].y - facePolygon [5].y);
@@ -91,11 +85,11 @@ namespace ProcPixel.Artists.Face {
 			};
 
 			if (noise > 0)
-				SetNoise ();
+				ApplyNoise ();
 			
 		}
 
-		void Fill() {
+		override protected void Fill() {
 			Vector2 point;
 			int eyeLength = polygon.Length / 2;
 			Vector2[] eye = new Vector2[eyeLength];
