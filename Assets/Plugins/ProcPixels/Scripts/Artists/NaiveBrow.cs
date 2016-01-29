@@ -18,6 +18,9 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField, Range(-.1f, .3f)]
 		float centerXOffset = 0;
 
+		[SerializeField, Range(1, 3)]
+		int browThickness = 1;
+
 		[SerializeField]
 		bool smoothGrow = false;
 
@@ -26,7 +29,7 @@ namespace ProcPixel.Artists.Face {
 			verticalDistance = Random.Range (0.2f, 0.5f);
 			centerAccent = Random.Range (0, 0.5f);
 			centerXOffset = Random.Range (-.1f, .3f);
-			smoothGrow = Random.value <= 0.5f;
+			browThickness = Mathf.Min(Random.Range (1, 3), Mathf.CeilToInt(canvasHeight / 16f));
 		}
 
 		protected override void SetColor ()
@@ -73,10 +76,13 @@ namespace ProcPixel.Artists.Face {
 		{
 			for (int offset = 0; offset < polygon.Length; offset += 3) {
 				var line = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [offset], polygon [offset + 1], polygon [offset + 2]);
-				for (int i = 0; i < line.Length; i++) {
-					Draw (line [i], ColorShade.Reference);
-				}	
-
+				for (int row = 0; row < browThickness; row++) {
+					for (int i = 0; i < line.Length; i++) {
+						var pos = line [i] + row * canvasWidth;
+						if (pos < drawingLayer.Length)
+							Draw (pos, ColorShade.Reference);
+					}	
+				}
 			}
 		}
 
