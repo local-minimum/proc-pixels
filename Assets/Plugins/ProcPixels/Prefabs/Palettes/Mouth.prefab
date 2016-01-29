@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &154864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 480560}
+  - 114: {fileID: 11470856}
+  m_Layer: 0
+  m_Name: Mouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &480560
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11470856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b0f069b7e15694ba09fa48445e245e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4284830460
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4287858172
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4282792368
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4286416894
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4288982014
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4283915953
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4286150584
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4288782285
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4283716480
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282535601
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4286219208
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4281218683
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4283919046
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4287207127
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4282141322
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4281412997
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4285426857
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4280426333
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282012870
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4285892567
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4280826506
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4279113132
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4283849668
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4278783608
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4286659806
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4289099495
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4284098971
+    shading: 0.3
+  - referenceColor:
+      serializedVersion: 2
+      rgba: 4282209714
+    lighterColor:
+      serializedVersion: 2
+      rgba: 4286023881
+    darkerColor:
+      serializedVersion: 2
+      rgba: 4280957820
+    shading: 0.3
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 154864}
+  m_IsPrefabParent: 1

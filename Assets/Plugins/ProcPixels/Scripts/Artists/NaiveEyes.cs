@@ -10,8 +10,17 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField, Range(.05f, .2f)]
 		float distance = 0.2f;
 
-		[SerializeField, Range(0.02f, 0.3f)]
+		[SerializeField, Range(0.02f, 0.2f)]
 		float height = 0.1f;
+
+		[SerializeField, Range(0.1f, 0.2f)]
+		float centerUpperElevation = 0.1f;
+
+		[SerializeField, Range(0.01f, 0.1f)]
+		float centerLowerDepression = 0.01f;
+
+		[SerializeField, Range(0.2f, 0.7f)]
+		float centerAxis = 0.4f;
 
 		[SerializeField, Range(0.2f, 0.5f)]
 		float width = 0.4f;
@@ -42,13 +51,16 @@ namespace ProcPixel.Artists.Face {
 		}
 
 		void SetColor() {
-			color = _palette [FaceColors.Eye];
+			color = _palette [FaceColors.EyeWhite];
 		}
 
 		void SetNewValues() {
 			distance = Random.Range (.05f, .2f);
-			height = Random.Range (.1f, .3f);
+			height = Random.Range (.01f, .2f);
+			centerUpperElevation = Random.Range (0.1f, 0.2f);
 			width = Random.Range (.2f, .5f);
+			centerAxis = Random.Range (0.2f, 0.7f);
+			centerLowerDepression = Random.Range (0.01f, 0.1f);
 		}
 
 		void SetPolygon() {
@@ -58,17 +70,24 @@ namespace ProcPixel.Artists.Face {
 			float halfHeight = height / 2f * yScale;
 			float distance = this.distance * xScale;
 			float widthExtent = distance + xScale * width;
+			float centerPosition = distance + xScale * width * centerAxis;
+			float centerElevation = yScale * centerUpperElevation;
+			float centerDepression = yScale * centerLowerDepression;
 
-			polygon = new Vector2[8] {
+			polygon = new Vector2[12] {
 				center - new Vector2 (distance, -halfHeight),
+				center - new Vector2 (centerPosition, -(halfHeight + centerDepression)),			
 				center - new Vector2 (widthExtent, -halfHeight),
 				center - new Vector2 (widthExtent, halfHeight),
+				center - new Vector2 (centerPosition, halfHeight + centerElevation),			
 				center - new Vector2 (distance, halfHeight),
 
 				center + new Vector2 (distance, halfHeight),
 				center + new Vector2 (distance, -halfHeight),
+				center + new Vector2 (centerPosition, -(halfHeight + centerElevation)),
 				center + new Vector2 (widthExtent, -halfHeight),
-				center + new Vector2 (widthExtent, halfHeight)
+				center + new Vector2 (widthExtent, halfHeight),
+				center + new Vector2 (centerPosition, halfHeight + centerDepression),			
 			};
 
 			if (noise > 0)

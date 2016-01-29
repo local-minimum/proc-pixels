@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ProcPixel.Palettes
 {
-    public enum FaceColors { Skin, Eye, Hair };
+    public enum FaceColors { Skin, EyeIris, Hair, EyeWhite, Mouth };
 
     public class FacePalette : ProcPixel.Fundamentals.EnumeratedPalette<FaceColors> { };
 
