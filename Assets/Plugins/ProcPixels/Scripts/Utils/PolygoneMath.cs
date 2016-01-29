@@ -5,15 +5,18 @@ namespace ProcPixel.Utils {
 	
 	public static class PolygoneMath {
 
-		public static bool PointInTriangleSequence(Vector2 point, Vector2[] tris) {
+		public static bool PointInTriangleSequence(Vector2 point, Vector2[] tris, out int triangle) {
 			if (tris.Length % 3 != 0)
 				throw new System.ArgumentException ("Triangles should be a multiple of 3 on last count " + tris.Length + " is not!");
 
 			Vector2[] transposed = TransposePolygon (point, tris);
 			for (int i = 0; i < transposed.Length; i += 3) {
-				if (IsCCW (transposed, i, i + 3))
+				if (IsCCW (transposed, i, i + 3)) {
+					triangle = i / 3;
 					return true;
+				}
 			}
+			triangle = -1;
 			return false;
 		}
 

@@ -19,7 +19,7 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField, Range(0.01f, 0.1f)]
 		float centerLowerDepression = 0.01f;
 
-		[SerializeField, Range(0.2f, 0.7f)]
+		[SerializeField, Range(0.2f, 0.5f)]
 		float centerAxis = 0.4f;
 
 		[SerializeField, Range(0.2f, 0.5f)]
@@ -29,11 +29,6 @@ namespace ProcPixel.Artists.Face {
 		int smoothings = 0;
 
 		Vector2[] facePolygon;
-
-		public override void Paint ()
-		{
-
-		}
 
 		protected override void PostProcessing ()
 		{
@@ -50,7 +45,7 @@ namespace ProcPixel.Artists.Face {
 			height = Random.Range (.01f, .2f);
 			centerUpperElevation = Random.Range (0.1f, 0.2f);
 			width = Random.Range (.2f, .5f);
-			centerAxis = Random.Range (0.2f, 0.7f);
+			centerAxis = Random.Range (0.2f, 0.5f);
 			centerLowerDepression = Random.Range (0.01f, 0.1f);
 		}
 
@@ -93,7 +88,7 @@ namespace ProcPixel.Artists.Face {
 			Vector2 point;
 			int eyeLength = polygon.Length / 2;
 			Vector2[] eye = new Vector2[eyeLength];
-			int count = 0;
+
 			for (int i = 0; i < 2; i++) {
 				System.Array.Copy (polygon, i * eyeLength, eye, 0, eyeLength);
 				var box = PolygoneMath.BoundingPixelBox (eye);
@@ -103,7 +98,6 @@ namespace ProcPixel.Artists.Face {
 						point = new Vector2 (x, y);
 						if (PolygoneMath.PointInPoly (point, eye)) {
 							Draw (x, y, ColorShade.Reference);
-							count++;
 						}
 					}
 				}				

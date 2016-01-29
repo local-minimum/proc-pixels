@@ -61,12 +61,13 @@ namespace ProcPixel.Artists.Face {
 		void OnDrawGizmosSelected() {
 			if (polygon == null)
 				return;
-			
+
+			float sphereSize = 0.3f;
 			float size = 4f;
 			for (int i = 0; i < polygon.Length; i++) {
 				int j = (i + 1) % polygon.Length;
 				Gizmos.DrawLine (transform.TransformPoint (polygon [i] * size ), transform.TransformPoint (polygon [j] * size));
-				Gizmos.DrawSphere(transform.TransformPoint(polygon[i] * size), 3f * size);
+				Gizmos.DrawSphere(transform.TransformPoint(polygon[i] * size), sphereSize * size);
 
 			}
 		}

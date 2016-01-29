@@ -129,5 +129,14 @@ namespace ProcPixel.Fundamentals
                 }
             }
         }
+
+		public static ColorShade RandomShade {
+			get {
+				if (Random.value < 0.34f)
+					return ColorShade.Reference;
+				else
+					return Random.value <= 0.5f ? ColorShade.Lighter : ColorShade.Darker;
+			}
+		}
     }
 }
