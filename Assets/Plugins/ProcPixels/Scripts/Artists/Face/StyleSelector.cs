@@ -21,7 +21,7 @@ namespace ProcPixel.Artists.Face {
 		public override void Paint ()
 		{
 			if (Random.value > probabilityOfNothing) {
-
+				RandomSelectSubArtist ();
 			}
 		}
 
@@ -30,11 +30,11 @@ namespace ProcPixel.Artists.Face {
 			polygon = parentPolygon;
 
 			if (Random.value > probabilityOfNothing) {
-
+				RandomSelectSubArtist ();
 			}
 		}
 
-		protected virtual void RandomSelectSubArtis() {
+		protected virtual void RandomSelectSubArtist() {
 			subArtist [Random.Range (0, subArtist.Length)].Paint (polygon);
 		}
 
