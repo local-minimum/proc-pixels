@@ -61,7 +61,7 @@ namespace ProcPixel.Fundamentals {
 			var rect = new Rect (Vector2.zero, new Vector2 (width, height));
 			_current = Sprite.Create (_image, rect, Vector2.one * 0.5f);
 			spriteName = name;
-
+			SetupConnector ();
 			if (OnNewCanvas != null)
 				OnNewCanvas (_current);
 		}

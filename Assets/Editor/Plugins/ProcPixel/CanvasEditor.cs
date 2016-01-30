@@ -20,7 +20,10 @@ namespace ProcPixel.Fundamentals {
 				canvas.CreateNewCanvas ();
 			}
 
-			if (GUILayout.Button ("Clear"))
+			if (GUILayout.Button ("New (doesn't overwrite previous if use elsewhere)"))
+				canvas.CreateNewCanvas ();
+			
+			if (GUILayout.Button ("Clear/Overwrite current as blank"))
 				canvas.Clear ();
 
 			if (GUILayout.Button ("Save as PNG"))

@@ -71,6 +71,16 @@ namespace ProcPixel.Artists.Face {
 				}
 			}
 
+			var cleft = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [0], polygon [2]);
+			for (int i = 0; i < cleft.Length; i++) {
+				Draw(cleft[i], ColorShade.Reference);
+			}
+
+			cleft = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [9], polygon [10]);
+			for (int i = 0; i < cleft.Length; i++) {
+				Draw(cleft[i], ColorShade.Lighter);
+			}
+
 			var centerLine = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [1], polygon [2], polygon [16]);
 			for (int i = 0; i < centerLine.Length; i++) {
 				Draw (centerLine [i], ColorShade.Darker);
