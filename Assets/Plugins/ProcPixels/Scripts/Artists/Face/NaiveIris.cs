@@ -79,7 +79,7 @@ namespace ProcPixel.Artists.Face {
 
 				for (int x = Mathf.FloorToInt (box.xMin), X = Mathf.CeilToInt (box.xMax); x < X; x++) {
 					for (int y = Mathf.FloorToInt (box.yMin), Y = Mathf.CeilToInt (box.yMax); y < Y; y++) {
-						point = new Vector2 (x, y);
+						point = LineMath.PixelCoordinateToVector(x, y);
 						if (PolygonMath.PointInPoly (point, eye)) {
 							Draw (x, y, ProcPixel.Fundamentals.Color.RandomShade);
 						}

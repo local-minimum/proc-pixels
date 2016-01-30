@@ -53,7 +53,7 @@ namespace ProcPixel.Utils {
 			for (int i = startIndex; i < endIndex; i++) {
 				int j = ((i + 1) % (endIndex - startIndex)) + startIndex;
 				if ((edges [j].x * edges [i].y -
-					edges [i].x * edges [j].y) <= 0f)
+					edges [i].x * edges [j].y) < 0f)
 					return false;
 			}
 			return true;

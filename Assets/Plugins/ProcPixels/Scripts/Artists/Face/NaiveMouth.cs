@@ -64,13 +64,13 @@ namespace ProcPixel.Artists.Face {
 
 			for (int x = Mathf.FloorToInt (box.xMin), X = Mathf.CeilToInt (box.xMax); x < X; x++) {
 				for (int y = Mathf.FloorToInt (box.yMin), Y = Mathf.CeilToInt (box.yMax); y < Y; y++) {
-					point = new Vector2 (x, y);
+					point = LineMath.PixelCoordinateToVector (x, y);
 					if (PolygonMath.PointInTriangleSequence(point, polygon, out triangle)) {
 						Draw (x, y, (triangle == 0 || triangle == 5) ? ColorShade.Reference : ColorShade.Lighter);
 					}
 				}
 			}
-
+			/*
 			var cleft = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [0], polygon [2]);
 			for (int i = 0; i < cleft.Length; i++) {
 				Draw(cleft[i], ColorShade.Reference);
@@ -79,7 +79,7 @@ namespace ProcPixel.Artists.Face {
 			cleft = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [9], polygon [10]);
 			for (int i = 0; i < cleft.Length; i++) {
 				Draw(cleft[i], ColorShade.Lighter);
-			}
+			}*/
 
 			var centerLine = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon [1], polygon [2], polygon [16]);
 			for (int i = 0; i < centerLine.Length; i++) {
