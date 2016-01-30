@@ -24,6 +24,9 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField, Range(-0.2f, 0.2f)]
 		float lateralOffset = 0;
 
+		[SerializeField, Range(0f, 0.25f)]
+		float curliness = 0.05f;
+
 		[SerializeField]
 		HairWaveDirection direction = HairWaveDirection.Left;
 			
@@ -33,6 +36,8 @@ namespace ProcPixel.Artists.Face {
 			baseDepression = Random.Range (0, 0.5f);
 			hairHight = Random.Range (0.1f, 2f);
 			lateralOffset = Random.Range (-0.2f, 0.2f);
+			curliness = Random.Range (0f, 0.25f);
+
 			var enumValues = (HairWaveDirection[]) System.Enum.GetValues (typeof(HairWaveDirection));
 			direction = enumValues[Random.Range(0, enumValues.Length)];
 
@@ -78,11 +83,27 @@ namespace ProcPixel.Artists.Face {
 		protected override void Fill ()
 		{
 			var line = LineMath.VectorLineToPixels (canvasWidth, canvasHeight, AdjancanyCondition.Line, polygon);	
-
+			int growthIterations = Mathf.RoundToInt (hairHight * canvasHeight);
+			float rotationAcceleration = 0;
+			if (direction == HairWaveDirection.Left)
+				rotationAcceleration = 1;
+			else if (direction == HairWaveDirection.Right)
+				rotationAcceleration = -1;
+					
 			for (int i = 0; i < line.Length; i++) {
 				//Build hair
+				if (direction == HairWaveDirection.Random)
+					rotationAcceleration = Random.value < 0.5f ? 1f : -1f;
+				
+				var hair = LineMath.GrowSnake (
+					           canvasWidth, canvasHeight, line [i], Vector2.up * 0.2f,
+					           rotationAcceleration * curliness,
+					           growthIterations);
 
-				Draw (line [i], ColorShade.Darker);
+				var shade = ProcPixel.Fundamentals.Color.RandomShade;
+				for (int j = 0; j < hair.Length; j++) {
+					Draw (hair [j], shade);
+				}
 			}
 		}
 

@@ -32,9 +32,21 @@ namespace ProcPixel.Utils {
 		public static int[] GrowSnake(int canvasWidth, int canvasHeight, int source, Vector2 direction, float rotationalAcceleration, int iterations) {
 			var snake = new List<int> ();
 			snake.Add (source);
+			float rotation = 0;
+			int currentPosition = source;
+			Vector2 vector = PositionToVector (source, canvasWidth);
 
 			for (int i = 0; i < iterations; i++) {
-
+				vector += direction;
+				if (VectorInCanvas (vector, canvasWidth, canvasHeight)) {
+					int nextPosition = VectorToPosition (vector, canvasWidth, canvasHeight);
+					if (nextPosition != currentPosition) {
+						snake.Add (nextPosition);
+						currentPosition = nextPosition;
+					}
+				}
+				rotation += rotationalAcceleration;
+				direction = Quaternion.AngleAxis (rotation, Vector3.forward) * direction;
 			}
 			return snake.ToArray ();
 		}
