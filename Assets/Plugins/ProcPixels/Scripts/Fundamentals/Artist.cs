@@ -8,7 +8,7 @@ namespace ProcPixel.Fundamentals {
 		PaintCanvas _canvas;
 
 		[SerializeField]
-		private Artist[] subArtist;
+		protected Artist[] subArtist;
 
 		[SerializeField, HideInInspector]
 		protected ColorShade[] drawingLayer;
