@@ -16,9 +16,9 @@ namespace ProcPixel.Fundamentals {
 
 		protected Vector2[] polygon;
 
-		ProcPixel.Fundamentals.Color _color;
+		ProcPixel.Fundamentals.ShadedColor _color;
 
-		public ProcPixel.Fundamentals.Color color {
+		public ProcPixel.Fundamentals.ShadedColor color {
 			get {
 				return _color;
 			}

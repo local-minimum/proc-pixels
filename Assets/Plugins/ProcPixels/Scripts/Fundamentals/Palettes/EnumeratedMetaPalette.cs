@@ -17,7 +17,7 @@ namespace ProcPixel.Fundamentals
 		new void Reset ()
 		{
 			var l = EnumLength;
-			colors = new Color[l];
+			colors = new ShadedColor[l];
 			palettes = new AbstractPalette[l];
 		}
 

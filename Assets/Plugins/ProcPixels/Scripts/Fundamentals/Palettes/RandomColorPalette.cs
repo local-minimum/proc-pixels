@@ -8,15 +8,15 @@ namespace ProcPixel.Fundamentals
 		[SerializeField]
 		int _size = 1;
 
-		public override Color RandomColor {
+		public override ShadedColor RandomColor {
 			get {
-				return Color.RandomColor;
+				return ShadedColor.RandomColor;
 			}
 		}
 
-		public override Color this[int index] {
+		public override ShadedColor this[int index] {
 			get {
-				return Color.RandomColor;
+				return ShadedColor.RandomColor;
 			}
 		}
 

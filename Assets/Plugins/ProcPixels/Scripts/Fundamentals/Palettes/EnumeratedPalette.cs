@@ -18,10 +18,10 @@ namespace ProcPixel.Fundamentals
 
         protected void Reset()
         {
-            colors = new Color[EnumLength];
+            colors = new ShadedColor[EnumLength];
         }
 
-        public Color this[T index]
+        public ShadedColor this[T index]
         {
             get
             {

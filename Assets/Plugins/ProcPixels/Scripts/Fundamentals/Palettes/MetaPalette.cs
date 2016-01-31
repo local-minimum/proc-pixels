@@ -17,7 +17,7 @@ namespace ProcPixel.Fundamentals {
 			}
 		}
 
-		public override Color this[int index] {
+		public override ShadedColor this[int index] {
 			get {
 				int pos = index;
 				for (int i = 0; i < palettes.Length; i++) {
@@ -45,7 +45,7 @@ namespace ProcPixel.Fundamentals {
 			}
 		}
 
-		public override Color RandomColor {
+		public override ShadedColor RandomColor {
 			get {
 				return this [Random.Range (0, size)];
 			}

@@ -7,15 +7,15 @@ namespace ProcPixel.Fundamentals
 	public abstract class AbstractPalette : MonoBehaviour {
 		
 		[SerializeField]
-		protected Color[] colors;
+		protected ShadedColor[] colors;
 
-		public virtual Color RandomColor {
+		public virtual ShadedColor RandomColor {
 			get {
 				return colors[Random.Range(0, colors.Length)];
 			}
 		}
 
-		public virtual Color this[int index] {
+		public virtual ShadedColor this[int index] {
 			get {
 				return colors [index];
 			}

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using System.Reflection;
 
 namespace ProcPixel.Fundamentals {
 
@@ -74,15 +75,34 @@ namespace ProcPixel.Fundamentals {
 			spriteName = name;
 
 			//TODO: Fix this better
-
-			SetupConnector ();
+			#if UNITY_EDITOR
+			ManualSendMessage("HandleNewCanvas", SendMessageOptions.RequireReceiver, _current);
+			#endif
 
 			if (OnNewCanvas == null) {
+				#if !UNITY_EDITOR
 				SendMessage ("HandleNewCanvas", _current, SendMessageOptions.DontRequireReceiver);
+				#endif
 			} else 
 				OnNewCanvas (_current);
 
 
+		}
+
+		void ManualSendMessage(string message, SendMessageOptions option, params object[] arguments) {
+			var behaviours = GetComponentsInChildren<MonoBehaviour> ();
+			bool success = option == SendMessageOptions.DontRequireReceiver;
+			var argumentTypes = System.Type.GetTypeArray (arguments);
+			for (int i = 0; i < behaviours.Length; i++) {
+				var meth = behaviours [i].GetType ().GetMethod (
+					message, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+				if (meth != null) {
+					meth.Invoke ((Object)behaviours [i], arguments);
+					success = true;
+				}					
+			}
+			if (!success)
+				throw new System.ArgumentException ("No object found with function: " + message);			
 		}
 
 		public void Draw(int x, int y, Color32 color) {

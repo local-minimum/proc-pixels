@@ -100,7 +100,7 @@ namespace ProcPixel.Artists.Face {
 					           rotationAcceleration * curliness,
 					           growthIterations);
 
-				var shade = ProcPixel.Fundamentals.Color.RandomShade;
+				var shade = ProcPixel.Fundamentals.ShadedColor.RandomShade;
 				for (int j = 0; j < hair.Length; j++) {
 					Draw (hair [j], shade);
 				}

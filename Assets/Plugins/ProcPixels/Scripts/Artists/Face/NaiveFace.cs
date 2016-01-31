@@ -90,7 +90,6 @@ namespace ProcPixel.Artists.Face {
 				height = rect.height;
 				offset = Vector2.zero;
 			} else {
-				Debug.Log (parentPolygon [0]);
 				width = parentPolygon [3].x - parentPolygon [0].x;
 				height = parentPolygon [1].y - parentPolygon [0].y;
 				offset = parentPolygon [0];

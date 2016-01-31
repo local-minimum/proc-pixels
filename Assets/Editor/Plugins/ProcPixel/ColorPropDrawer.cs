@@ -4,7 +4,7 @@ using UnityEditor;
 
 namespace ProcPixel.Fundamentals
 {
-    [CustomPropertyDrawer(typeof(Color))]
+    [CustomPropertyDrawer(typeof(ShadedColor))]
     public class ColorPropDrawer : PropertyDrawer
     {
 		float rowHeight = 16f;
@@ -38,8 +38,8 @@ namespace ProcPixel.Fundamentals
 				if (EditorGUI.EndChangeCheck ()) {
 					var refColor = property.FindPropertyRelative ("referenceColor").colorValue;
 					property.FindPropertyRelative ("shading").floatValue = shade;
-					property.FindPropertyRelative ("darkerColor").colorValue = Color.CalculateShade (refColor, shade, ColorShade.Darker);
-					property.FindPropertyRelative ("lighterColor").colorValue = Color.CalculateShade (refColor, shade, ColorShade.Lighter);
+					property.FindPropertyRelative ("darkerColor").colorValue = ShadedColor.CalculateShade (refColor, shade, ColorShade.Darker);
+					property.FindPropertyRelative ("lighterColor").colorValue = ShadedColor.CalculateShade (refColor, shade, ColorShade.Lighter);
 				}
 				contentPosition.y += rowHeight + rowSpacing;
 				EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("lighterColor"), new GUIContent("Lighter"));
@@ -61,8 +61,8 @@ namespace ProcPixel.Fundamentals
 				if (EditorGUI.EndChangeCheck ()) {
 					var refColor = property.FindPropertyRelative ("referenceColor").colorValue;
 					property.FindPropertyRelative ("shading").floatValue = shade;
-					property.FindPropertyRelative ("darkerColor").colorValue = Color.CalculateShade (refColor, shade, ColorShade.Darker);
-					property.FindPropertyRelative ("lighterColor").colorValue = Color.CalculateShade (refColor, shade, ColorShade.Lighter);
+					property.FindPropertyRelative ("darkerColor").colorValue = ShadedColor.CalculateShade (refColor, shade, ColorShade.Darker);
+					property.FindPropertyRelative ("lighterColor").colorValue = ShadedColor.CalculateShade (refColor, shade, ColorShade.Lighter);
 				}
 			}
 

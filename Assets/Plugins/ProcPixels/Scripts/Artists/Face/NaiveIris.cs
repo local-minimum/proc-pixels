@@ -81,7 +81,7 @@ namespace ProcPixel.Artists.Face {
 					for (int y = Mathf.FloorToInt (box.yMin), Y = Mathf.CeilToInt (box.yMax); y < Y; y++) {
 						point = LineMath.PixelCoordinateToVector(x, y);
 						if (PolygonMath.PointInPoly (point, eye)) {
-							Draw (x, y, ProcPixel.Fundamentals.Color.RandomShade);
+							Draw (x, y, ProcPixel.Fundamentals.ShadedColor.RandomShade);
 						}
 					}
 				}
