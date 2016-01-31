@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ProcPixel.Utils;
 
 namespace ProcPixel.Fundamentals {
 	public class Artist : MonoBehaviour {
@@ -27,24 +28,21 @@ namespace ProcPixel.Fundamentals {
 				for (int i = 0; i < subArtist.Length; i++)
 					subArtist [i].color = value;
 			}
-		}
-
-		int _canvasWidth;
-		int _canvasHeight;
+		}			
 
 		public int canvasWidth {
 			get {
-				return _canvasWidth;
+				return canvas.width;
 			}
 		}
 
 		public int canvasHeight {
 			get {
-				return _canvasHeight;
+				return canvas.height;
 			}
 		}
 
-		Rect _rect;
+		protected Rect _rect;
 		public Rect rect {
 			get {
 				return new Rect (_rect);
@@ -77,63 +75,93 @@ namespace ProcPixel.Fundamentals {
 		}
 
 		protected void Draw(int x, int y, ColorShade shade) {
-			drawingLayer [y * _canvasWidth + x] = shade;
+			int pos = LineMath.PixelCoordinateToPosition (x, y, canvasWidth);
+			if (pos < drawingLayer.Length)
+				drawingLayer [pos] = shade;
+			else {
+				throw new System.IndexOutOfRangeException(
+					string.Format("Position ({0}, {1}) that translates to index {2} is outside drawing layer (size {3}) of canvas (size {4} x {5})",
+						x, y, pos, drawingLayer.Length, canvasWidth, canvasHeight));
+			}
 		}
 
 		protected void Draw(int pos, ColorShade shade) {
 			drawingLayer [pos] = shade;
 		}
 
-		void HandleNewCanvas(Sprite sprite) {
+		protected virtual void HandleNewCanvas(Sprite sprite) {
 			_rect = sprite.rect;
-			_canvasWidth = Mathf.RoundToInt(sprite.rect.width);
-			_canvasHeight = Mathf.RoundToInt (sprite.rect.height);
-			drawingLayer = new ColorShade[_canvasWidth * _canvasHeight];
+			drawingLayer = new ColorShade[canvasWidth * canvasHeight];
 
 		}
-
-		public bool canvasIsSetup {
-			get {
-				if (_canvasHeight < 1 || _canvasWidth < 1 || drawingLayer.Length != _canvasHeight * _canvasWidth)
-					return false;
-				
-				return true;
-
-			}
-		}
-
-		bool ReSetupCanvas() {
-			if (!canvasIsSetup) {
-				canvas = canvas;
-				for (int i = 0; i < subArtist.Length; i++)
-					ReSetupCanvas ();
-				return canvasIsSetup;
+			
+		bool SetupCanvas() {
+			if (canvas == null) {
+				canvas = GetComponentInParent<PaintCanvas> ();
+				return canvas != null;
 			}
 			return true;
 		}
 
-		virtual public void Paint() {
+		public void Paint() {
+
+			if (!SetupCanvas()) {
+				throw new System.ArgumentException ("Canvas isn't correctly initialized");
+			}
+
+			_Paint ();
+
+			for (int i = 0; i < subArtist.Length; i++)
+				subArtist [i].Paint (polygon);
 			
-			if (!ReSetupCanvas()) {
+		}
+
+		virtual protected void _Paint() {
+
+		}
+
+		public void ClearCanvas() {
+			canvas.Clear ();
+		}
+
+		public void ApplyToCanvas() {
+
+			if (!SetupCanvas()) {
 				throw new System.ArgumentException ("Canvas isn't correctly initialized");
 			}
 
 			for (int i = 0; i < drawingLayer.Length; i++) {
-				if (drawingLayer[i] != ColorShade.None) {
-					int x = i % _canvasWidth;
-					canvas.Draw(x, (i - x)/_canvasWidth, _color[drawingLayer[i]]); 
+				if (drawingLayer[i] != ColorShade.None) {					
+					canvas.Draw(LineMath.PostionToPixelCoordinate(i, canvasWidth), _color[drawingLayer[i]]); 
 				}
 			}
 
 			canvas.Apply ();
 
-			for (int i = 0; i < subArtist.Length; i++)
-				subArtist [i].Paint (polygon);
-			
-		}			
+			for (int i = 0; i < subArtist.Length; i++) {
+				subArtist [i].ApplyToCanvas ();
+			}
+		}
 
 		virtual public void Paint(Vector2[] parentPolygon) {
 			Paint ();
 		}
+
+		#if UNITY_EDITOR
+		void OnDrawGizmosSelected() {
+			if (polygon == null)
+				return;
+
+			float sphereSize = 0.3f;
+			float size = 4f;
+			for (int i = 0; i < polygon.Length; i++) {
+				int j = (i + 1) % polygon.Length;
+				Gizmos.DrawLine (transform.TransformPoint (polygon [i] * size ), transform.TransformPoint (polygon [j] * size));
+				Gizmos.DrawSphere(transform.TransformPoint(polygon[i] * size), sphereSize * size);
+
+			}
+		}
+
+		#endif
 	}
 }

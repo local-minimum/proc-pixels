@@ -16,9 +16,6 @@ namespace ProcPixel.Artists.Face {
 		protected bool randomShape = true;
 
 		[SerializeField]
-		protected bool clearBeforePaint = false;
-
-		[SerializeField]
 		protected bool remakePaletteOnPaint = false;
 
 		protected void ApplyNoise() {
@@ -36,10 +33,8 @@ namespace ProcPixel.Artists.Face {
 
 		abstract protected void PostProcessing ();
 
-		public override void Paint ()
+		protected override void _Paint ()
 		{
-			if (clearBeforePaint)
-				canvas.Clear ();
 
 			if (remakePaletteOnPaint)
 				_palette.SetRandomColorsFromPalettes ();
@@ -54,24 +49,7 @@ namespace ProcPixel.Artists.Face {
 			Fill ();
 			PostProcessing ();
 
-			base.Paint ();
 		}
-
-		#if UNITY_EDITOR
-		void OnDrawGizmosSelected() {
-			if (polygon == null)
-				return;
-
-			float sphereSize = 0.3f;
-			float size = 4f;
-			for (int i = 0; i < polygon.Length; i++) {
-				int j = (i + 1) % polygon.Length;
-				Gizmos.DrawLine (transform.TransformPoint (polygon [i] * size ), transform.TransformPoint (polygon [j] * size));
-				Gizmos.DrawSphere(transform.TransformPoint(polygon[i] * size), sphereSize * size);
-
-			}
-		}
-
-		#endif
+			
 	}
 }

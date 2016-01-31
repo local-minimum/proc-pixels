@@ -32,6 +32,8 @@ namespace ProcPixel.Artists.Face {
 		[SerializeField]
 		bool erodeFace = true;	
 
+		Vector2[] parentPolygon;
+
 		override protected void SetColor() {
 			color = _palette[FaceColors.Skin];
 		}
@@ -79,10 +81,25 @@ namespace ProcPixel.Artists.Face {
 		}			
 
 		void ScaleValues() {
-			Rect extents = rect;
+			float width;
+			float height;
+			Vector2 offset;
+
+			if (parentPolygon == null) {
+				width = rect.width;
+				height = rect.height;
+				offset = Vector2.zero;
+			} else {
+				Debug.Log (parentPolygon [0]);
+				width = parentPolygon [3].x - parentPolygon [0].x;
+				height = parentPolygon [1].y - parentPolygon [0].y;
+				offset = parentPolygon [0];
+			}
+
 			for (int i = 0; i < polygon.Length; i++) {
-				polygon [i].x *=  extents.width;
-				polygon [i].y *= extents.height;
+				polygon [i].x *=  width;
+				polygon [i].y *= height;
+				polygon [i] +=  offset;			
 			}
 		}
 
@@ -100,6 +117,12 @@ namespace ProcPixel.Artists.Face {
 						Draw (x, y, shade);
 				}
 			}				
+		}
+
+		public override void Paint (Vector2[] parentPolygon)
+		{
+			this.parentPolygon = parentPolygon;
+			Paint ();
 		}
 			
 	}

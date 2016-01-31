@@ -35,11 +35,22 @@ namespace ProcPixel.Fundamentals {
 		Texture2D _image;
 
 		[SerializeField, HideInInspector]
-		int width = 32;
+		int _width = 32;
 
 		[SerializeField, HideInInspector]
-		int height = 32;
+		int _height = 32;
 
+		public int width {
+			get {
+				return _image.width;
+			}
+		}
+
+		public int height {
+			get {
+				return _image.height;
+			}
+		}
 		void Reset() {
 			CreateNewCanvas ();
 			if (GetComponent<UnityEngine.UI.Image> () != null)
@@ -55,19 +66,31 @@ namespace ProcPixel.Fundamentals {
 		}
 
 		public void CreateNewCanvas() {
-			_image = new Texture2D (width, height, TextureFormat.RGBA32, false);
+			_image = new Texture2D (_width, _height, TextureFormat.RGBA32, false);
 			_image.filterMode = FilterMode.Point;
 			var name = spriteName;;
-			var rect = new Rect (Vector2.zero, new Vector2 (width, height));
+			var rect = new Rect (Vector2.zero, new Vector2 (_width, _height));
 			_current = Sprite.Create (_image, rect, Vector2.one * 0.5f);
 			spriteName = name;
+
+			//TODO: Fix this better
+
 			SetupConnector ();
-			if (OnNewCanvas != null)
+
+			if (OnNewCanvas == null) {
+				SendMessage ("HandleNewCanvas", _current, SendMessageOptions.DontRequireReceiver);
+			} else 
 				OnNewCanvas (_current);
+
+
 		}
 
 		public void Draw(int x, int y, Color32 color) {
 			_image.SetPixel (x, y, color);
+		}
+
+		public void Draw(int[] xy, Color32 color) {
+			_image.SetPixel (xy [0], xy [1], color);
 		}
 
 		public void Apply() {
@@ -76,8 +99,8 @@ namespace ProcPixel.Fundamentals {
 
 		public void Clear() {
 			Color32 col = new Color32 (0,0,0,0);
-			for (int x = 0; x < width; x++) {
-				for (int y = 0; y < height; y++) {
+			for (int x = 0; x < _width; x++) {
+				for (int y = 0; y < _height; y++) {
 					_image.SetPixel (x, y, col);
 				}
 			}
@@ -93,5 +116,25 @@ namespace ProcPixel.Fundamentals {
 			File.WriteAllBytes (filename + ".png", _image.EncodeToPNG ());
 		}
 
+		#if UNITY_EDITOR
+		void OnDrawGizmosSelected() {
+			if (currentSprite == null)
+				return;
+
+			var rect = currentSprite.rect;
+			var scale = 4;
+			Vector2 pos = rect.position;
+			pos *= scale;
+			Gizmos.color = UnityEngine.Color.red;
+			Gizmos.DrawLine (transform.TransformPoint (pos), transform.TransformPoint (pos + Vector2.up * rect.height * scale));
+			Gizmos.DrawLine (transform.TransformPoint (pos + Vector2.up * rect.height * scale),
+				transform.TransformPoint ( pos + Vector2.up * rect.height * scale + Vector2.right * rect.width * scale));
+			Gizmos.DrawLine (transform.TransformPoint (pos + Vector2.up * rect.height * scale + Vector2.right * rect.width * scale),
+				transform.TransformPoint (pos + Vector2.right * rect.width * scale));
+			Gizmos.DrawLine (transform.TransformPoint ( pos + Vector2.right * rect.width * scale), transform.TransformPoint (pos));
+
+			Gizmos.color = UnityEngine.Color.gray;
+		}
+		#endif
 	}
 }

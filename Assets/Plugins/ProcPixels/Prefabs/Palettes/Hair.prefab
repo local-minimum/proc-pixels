@@ -45,158 +45,338 @@ MonoBehaviour:
       rgba: 4279840566
     lighterColor:
       serializedVersion: 2
-      rgba: 4287403930
+      rgba: 4282865758
     darkerColor:
       serializedVersion: 2
-      rgba: 4278982427
-    shading: 0.5
+      rgba: 4279444779
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4280296241
     lighterColor:
       serializedVersion: 2
-      rgba: 4287599000
+      rgba: 4283191130
     darkerColor:
       serializedVersion: 2
-      rgba: 4279243032
-    shading: 0.5
+      rgba: 4279835431
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4281546567
     lighterColor:
       serializedVersion: 2
-      rgba: 4288256931
+      rgba: 4284178283
     darkerColor:
       serializedVersion: 2
-      rgba: 4279835427
-    shading: 0.5
+      rgba: 4280822584
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4279117116
     lighterColor:
       serializedVersion: 2
-      rgba: 4287009437
+      rgba: 4282273891
     darkerColor:
       serializedVersion: 2
-      rgba: 4278653470
-    shading: 0.5
+      rgba: 4278918447
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4281220174
     lighterColor:
       serializedVersion: 2
-      rgba: 4288060838
+      rgba: 4283917169
     darkerColor:
       serializedVersion: 2
-      rgba: 4279705127
-    shading: 0.5
+      rgba: 4280561470
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4281088342
     lighterColor:
       serializedVersion: 2
-      rgba: 4287995050
+      rgba: 4283850871
     darkerColor:
       serializedVersion: 2
-      rgba: 4279639083
-    shading: 0.5
+      rgba: 4280495428
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4281815908
     lighterColor:
       serializedVersion: 2
-      rgba: 4288391601
+      rgba: 4284446083
     darkerColor:
       serializedVersion: 2
-      rgba: 4279970098
-    shading: 0.5
+      rgba: 4281025103
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4280033346
     lighterColor:
       serializedVersion: 2
-      rgba: 4287467424
+      rgba: 4282993767
     darkerColor:
       serializedVersion: 2
-      rgba: 4279111713
-    shading: 0.5
+      rgba: 4279638324
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4283463580
     lighterColor:
       serializedVersion: 2
-      rgba: 4289182669
+      rgba: 4285764271
     darkerColor:
       serializedVersion: 2
-      rgba: 4280826702
-    shading: 0.5
+      rgba: 4282343292
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4284385709
     lighterColor:
       serializedVersion: 2
-      rgba: 4289643734
+      rgba: 4286488765
     darkerColor:
       serializedVersion: 2
-      rgba: 4281287766
-    shading: 0.5
+      rgba: 4283133322
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4280636061
     lighterColor:
       serializedVersion: 2
-      rgba: 4287801550
+      rgba: 4283462832
     darkerColor:
       serializedVersion: 2
-      rgba: 4279380302
-    shading: 0.5
+      rgba: 4280107389
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4283995841
     lighterColor:
       serializedVersion: 2
-      rgba: 4289448672
+      rgba: 4286163917
     darkerColor:
       serializedVersion: 2
-      rgba: 4281092960
-    shading: 0.5
+      rgba: 4282808218
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4283398555
     lighterColor:
       serializedVersion: 2
-      rgba: 4289182925
+      rgba: 4285698991
     darkerColor:
       serializedVersion: 2
-      rgba: 4280761421
-    shading: 0.5
+      rgba: 4282343547
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4287084992
     lighterColor:
       serializedVersion: 2
-      rgba: 4291026143
+      rgba: 4288661452
     darkerColor:
       serializedVersion: 2
-      rgba: 4282604640
-    shading: 0.5
+      rgba: 4285240217
+    shading: 0.2
   - referenceColor:
       serializedVersion: 2
       rgba: 4289057750
     lighterColor:
       serializedVersion: 2
-      rgba: 4292012522
+      rgba: 4290239454
     darkerColor:
       serializedVersion: 2
-      rgba: 4283591019
-    shading: 0.5
+      rgba: 4286818475
+    shading: 0.2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[0].lighterColor.rgba
+      value: 4282865758
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[0].darkerColor.rgba
+      value: 4279444779
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[0].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[1].lighterColor.rgba
+      value: 4283191130
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[1].darkerColor.rgba
+      value: 4279835431
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[1].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[2].lighterColor.rgba
+      value: 4284178283
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[2].darkerColor.rgba
+      value: 4280822584
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[2].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[3].lighterColor.rgba
+      value: 4282273891
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[3].darkerColor.rgba
+      value: 4278918447
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[3].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[4].lighterColor.rgba
+      value: 4283917169
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[4].darkerColor.rgba
+      value: 4280561470
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[4].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[5].lighterColor.rgba
+      value: 4283850871
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[5].darkerColor.rgba
+      value: 4280495428
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[5].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[6].lighterColor.rgba
+      value: 4284446083
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[6].darkerColor.rgba
+      value: 4281025103
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[6].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[7].lighterColor.rgba
+      value: 4282993767
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[7].darkerColor.rgba
+      value: 4279638324
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[7].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[8].lighterColor.rgba
+      value: 4285764271
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[8].darkerColor.rgba
+      value: 4282343292
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[8].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[9].lighterColor.rgba
+      value: 4286488765
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[9].darkerColor.rgba
+      value: 4283133322
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[9].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[10].lighterColor.rgba
+      value: 4283462832
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[10].darkerColor.rgba
+      value: 4280107389
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[10].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[11].lighterColor.rgba
+      value: 4286163917
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[11].darkerColor.rgba
+      value: 4282808218
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[11].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[12].lighterColor.rgba
+      value: 4285698991
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[12].darkerColor.rgba
+      value: 4282343547
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[12].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[13].lighterColor.rgba
+      value: 4288661452
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[13].darkerColor.rgba
+      value: 4285240217
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[13].shading
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[14].lighterColor.rgba
+      value: 4290239454
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[14].darkerColor.rgba
+      value: 4286818475
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: colors.Array.data[14].shading
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 155660}

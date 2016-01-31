@@ -18,7 +18,7 @@ namespace ProcPixel.Artists.Face {
 			
 		}
 
-		public override void Paint ()
+		protected override void _Paint ()
 		{
 			if (Random.value > probabilityOfNothing) {
 				RandomSelectSubArtist ();

@@ -12,12 +12,24 @@ namespace ProcPixel.Fundamentals {
 			base.OnInspectorGUI ();
 
 			EditorGUI.BeginChangeCheck ();
-			PaintCanvas canvas = (PaintCanvas) EditorGUILayout.ObjectField ("Canvas", myTarget.canvas, typeof(PaintCanvas), true);
+			PaintCanvas canvas = (PaintCanvas)EditorGUILayout.ObjectField ("Canvas", myTarget.canvas, typeof(PaintCanvas), true);
 			if (EditorGUI.EndChangeCheck ())
 				myTarget.canvas = canvas;
 
-			if (GUILayout.Button ("Paint"))
+			EditorGUILayout.BeginHorizontal ();
+			if (GUILayout.Button ("Paint")) {
 				myTarget.Paint ();
+			}
+			if (GUILayout.Button ("Apply -> Canvas")) {
+				myTarget.ClearCanvas ();
+				myTarget.ApplyToCanvas ();
+			}
+			if (GUILayout.Button("Paint & Apply")) {
+				myTarget.Paint();
+				myTarget.ClearCanvas ();
+				myTarget.ApplyToCanvas();
+			}
+			EditorGUILayout.EndHorizontal ();
 		}
 	}
 }

@@ -29,6 +29,16 @@ namespace ProcPixel.Utils {
 			return !(vector.x < 0 || vector.y < 0 || Mathf.FloorToInt (vector.x) >= canvasWidth || Mathf.FloorToInt (vector.y) >= canvasHeight);
 		}
 
+		public static int PixelCoordinateToPosition(int X, int Y, int canvasWidth) {
+			return X + Y * canvasWidth;
+
+		}
+
+		public static int[] PostionToPixelCoordinate(int pos, int canvasWidth) {
+			int x = pos % canvasWidth;
+			return new int[2] { x, (pos - x) / canvasWidth };
+		}
+
 		public static int[] GrowSnake(int canvasWidth, int canvasHeight, int source, Vector2 direction, float rotationalAcceleration, int iterations) {
 			var snake = new List<int> ();
 			snake.Add (source);

@@ -12,8 +12,8 @@ namespace ProcPixel.Fundamentals {
 			canvas.spriteName = EditorGUILayout.TextField ("Sprite Name", canvas.spriteName);
 
 			EditorGUI.BeginChangeCheck ();
-			EditorGUILayout.IntSlider (serializedObject.FindProperty ("width"), 1, 256);
-			EditorGUILayout.IntSlider (serializedObject.FindProperty ("height"), 1, 256);
+			EditorGUILayout.IntSlider (serializedObject.FindProperty ("_width"), 1, 256);
+			EditorGUILayout.IntSlider (serializedObject.FindProperty ("_height"), 1, 256);
 
 			if (EditorGUI.EndChangeCheck()) {				
 				serializedObject.ApplyModifiedPropertiesWithoutUndo ();
