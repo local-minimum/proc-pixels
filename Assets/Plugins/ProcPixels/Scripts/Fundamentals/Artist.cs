@@ -91,9 +91,33 @@ namespace ProcPixel.Fundamentals {
 			drawingLayer = new ColorShade[_canvasWidth * _canvasHeight];
 
 		}
-	
+
+		public bool canvasIsSetup {
+			get {
+				if (_canvasHeight < 1 || _canvasWidth < 1 || drawingLayer.Length != _canvasHeight * _canvasWidth)
+					return false;
+				
+				return true;
+
+			}
+		}
+
+		bool ReSetupCanvas() {
+			if (!canvasIsSetup) {
+				canvas = canvas;
+				for (int i = 0; i < subArtist.Length; i++)
+					ReSetupCanvas ();
+				return canvasIsSetup;
+			}
+			return true;
+		}
+
 		virtual public void Paint() {
 			
+			if (!ReSetupCanvas()) {
+				throw new System.ArgumentException ("Canvas isn't correctly initialized");
+			}
+
 			for (int i = 0; i < drawingLayer.Length; i++) {
 				if (drawingLayer[i] != ColorShade.None) {
 					int x = i % _canvasWidth;
