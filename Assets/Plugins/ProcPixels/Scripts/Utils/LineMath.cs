@@ -26,7 +26,7 @@ namespace ProcPixel.Utils {
 		}
 
 		public static bool VectorInCanvas(Vector2 vector, int canvasWidth, int canvasHeight) {
-			return vector.x < 0 || vector.y < 0 || Mathf.FloorToInt (vector.x) >= canvasWidth || Mathf.FloorToInt (vector.y) >= canvasHeight;						
+			return !(vector.x < 0 || vector.y < 0 || Mathf.FloorToInt (vector.x) >= canvasWidth || Mathf.FloorToInt (vector.y) >= canvasHeight);
 		}
 
 		public static int[] GrowSnake(int canvasWidth, int canvasHeight, int source, Vector2 direction, float rotationalAcceleration, int iterations) {
