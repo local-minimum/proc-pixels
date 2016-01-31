@@ -8,8 +8,11 @@ public static class Extensions {
 		bool success = option == SendMessageOptions.DontRequireReceiver;
 		var argumentTypes = System.Type.GetTypeArray (arguments);
 		for (int i = 0; i < behaviours.Length; i++) {
+
+			//TODO: This should be improved, since it doesn't guarantee that the correct method signature exists
 			var meth = behaviours [i].GetType ().GetMethod (
 				message, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+			
 			if (meth != null) {
 				meth.Invoke ((Object)behaviours [i], arguments);
 				success = true;
